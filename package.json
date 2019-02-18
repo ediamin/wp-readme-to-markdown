@@ -1,0 +1,23 @@
+{
+  "name": "wp-readme-to-markdown",
+  "version": "1.0.0",
+  "description": "Converts WP readme.txt file to markdown (readme.md)",
+  "main": "index.js",
+  "scripts": {
+    "watch": "esw -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ediamin/wp-readme-to-markdown.git"
+  },
+  "author": {
+    "name": "Edi Amin",
+    "email": "to.ediamin@gmail.com",
+    "homepage": "https://github.com/ediamin"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ediamin/wp-readme-to-markdown#readme",
+  "engines": {
+    "node": ">=8.11.3"
+  }
+}
