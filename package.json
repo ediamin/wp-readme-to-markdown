@@ -1,6 +1,6 @@
 {
   "name": "wp-readme-to-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts WP readme.txt file to markdown (readme.md)",
   "main": "index.js",
   "bin": {
