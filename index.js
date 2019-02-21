@@ -32,12 +32,12 @@ fs.readFile(readme, 'utf8', (error, readmeTxt) => {
   const headerMatch = readmeTxt.match(new RegExp(/([^##]*)(?:\n##|$)/, 'm'))
   if (headerMatch && headerMatch.length >= 1) {
     const headerSearch = headerMatch[1]
-    const headerReplace = headerSearch.replace(new RegExp(/^([^:\r\n*]{1}[^:\r\n#\\]\\+): (.+)/, 'gim'), '**$1:** $2  ')
+    const headerReplace = headerSearch.replace(new RegExp('^([^:\r\n*]{1}[^:\r\n#\\]\\[]+): (.+)', 'gim'), '**$1:** $2  ') // eslint-disable-line no-control-regex
     readmeTxt = readmeTxt.replace(headerSearch, headerReplace)
   }
 
   // Include w.org profiles for contributors.
-  const contributorsMatch = readmeTxt.match(new RegExp(/(\\*\\*Contributors:\\*\\* )(.+)/, 'm'))
+  const contributorsMatch = readmeTxt.match(new RegExp('(\\*\\*Contributors:\\*\\* )(.+)', 'm'))
   if (headerMatch && headerMatch.length >= 1) {
     const contributorsSearch = contributorsMatch[0]
     let contributorsReplace = contributorsMatch[1]
@@ -90,7 +90,7 @@ fs.readFile(readme, 'utf8', (error, readmeTxt) => {
   }
 
   // Code blocks
-  readmeTxt = readmeTxt.replace(new RegExp(/^`$[\n\r]+([^`]*)[\n\r]+^`$/, 'gm'), (codeblock, codeblockContents) => {
+  readmeTxt = readmeTxt.replace(new RegExp('^`$[\n\r]+([^`]*)[\n\r]+^`$', 'gm'), (codeblock, codeblockContents) => { // eslint-disable-line no-control-regex
     const lines = codeblockContents.split('\n')
     // Add newline and indent all lines in the codeblock by one tab.
     return '\n\t' + lines.join('\n\t') + '\n' // trailing newline is unnecessary but adds some symmetry.
