@@ -38,7 +38,7 @@ fs.readFile(readme, 'utf8', (error, readmeTxt) => {
 
   // Include w.org profiles for contributors.
   const contributorsMatch = readmeTxt.match(new RegExp('(\\*\\*Contributors:\\*\\* )(.+)', 'm'))
-  if (headerMatch && headerMatch.length >= 1) {
+  if (contributorsMatch && contributorsMatch.length >= 1) {
     const contributorsSearch = contributorsMatch[0]
     let contributorsReplace = contributorsMatch[1]
     const profiles = []
